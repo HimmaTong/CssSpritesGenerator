@@ -59,5 +59,7 @@ namespace CssSpriteGenerator
         return Image.Width;
       }
     }
+
+    public Size Size { get { return new Size( Width, Height ); } }
   }
 }

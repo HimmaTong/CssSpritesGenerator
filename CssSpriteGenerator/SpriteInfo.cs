@@ -43,7 +43,7 @@ namespace CssSpriteGenerator
 
       foreach ( var item in Items )
       {
-        graphic.DrawImage( item.ImageInfo.Image, item.Offset );
+        graphic.DrawImage( item.ImageInfo.Image, item.Rectangle );
       }
 
       return canvas;
@@ -87,7 +87,7 @@ namespace CssSpriteGenerator
 
 
       GenerateSpriteImage().Save( imagePath );
-      GenerateStyleSheet( Path.GetFileName( imagePath ), directoryName );
+      File.WriteAllText( cssPath, GenerateStyleSheet( Path.GetFileName( imagePath ), directoryName ) );
 
     }
 

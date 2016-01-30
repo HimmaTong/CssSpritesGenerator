@@ -33,6 +33,6 @@ namespace CssSpriteGenerator
     public Point Offset { get; private set; }
 
     public SpriteInfo SpriteInfo { get; private set; }
-
+    public Rectangle Rectangle { get { return new Rectangle( Offset, ImageInfo.Size ); } }
   }
 }
