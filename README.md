@@ -10,6 +10,46 @@ License: http://www.codeproject.com/info/cpol10.aspx
 usage
 ===
 
-CssSpriteGenerator image-path
+1. collect some images or icons and put them in some folders, like this:
+```
+sprites
+|-main
+  |-left.arrow.png
+  |-right.arrow.png
+  |-global.jpg
+|-misc
+  |-hand.jpg
+  |-icon.gif
+```
+2. run CssSpriteGenerator 
 
-it will be enumerate all of sub-directory and collect all images to generate sprite images.
+```
+CssSpriteGenerator sprites
+```
+
+3. each sub-directory will generate an image and css file:
+```
+sprites
+|-main
+  |-left.arrow.png
+  |-right.arrow.png
+  |-global.jpg
+|-misc
+  |-hand.jpg
+  |-icon.gif
+|-main.png
+|-main.css
+|-misc.png
+|-misc.css
+```
+
+and ths css file like this:
+.main.hand
+{
+  background-image: url( 'main.png' );
+  width: ##px;
+  height: ##px;
+  background-position: ##px ##px;
+}
+
+4. enjoy it.
