@@ -1,8 +1,15 @@
-RectanglePacker
-===============
+important
+===
 
-Fast Optimizing Rectangle Packing Algorithm for Building CSS Sprites
+this project is forked from https://github.com/am11/RectanglePacker
 
-Taken from: http://www.codeproject.com/Articles/210979/Fast-optimizing-rectangle-packing-algorithm-for-bu
+License: http://www.codeproject.com/info/cpol10.aspx
 
-Nuget Package: https://www.nuget.org/packages/Mapper/
+
+
+usage
+===
+
+CssSpriteGenerator image-path
+
+it will be enumerate all of sub-directory and collect all images to generate sprite images.
