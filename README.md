@@ -49,7 +49,7 @@ sprites
 and ths css file like this:
 
 ```
-.main.hand
+.main.left-arrow
 {
   background-image: url( 'main.png' );
   width: ##px;
