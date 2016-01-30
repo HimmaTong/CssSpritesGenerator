@@ -51,8 +51,8 @@ namespace Mapper
         {
             // Right now, it is unknown how many rectangles need to be placed.
             // So guess that a 100 by 100 capacity will be enough.
-            const int initialCapacityX = 100;
-            const int initialCapacityY = 100;
+            const int initialCapacityX = 1000;
+            const int initialCapacityY = 1000;
 
             // Initially, there is one free cell, which covers the entire canvas.
             _canvasCells.Initialize(initialCapacityX, initialCapacityY, canvasWidth, canvasHeight, new CanvasCell(false));

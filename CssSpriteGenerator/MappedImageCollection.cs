@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
 using Mapper;
 
-/// <summary>
-/// Represents the contents of a sprite image.
-/// </summary>
-public class Sprite : ISprite
+
+namespace CssSpriteGenerator
 {
+
+  /// <summary>
+  /// Represents the contents of a sprite image.
+  /// </summary>
+  public class MappedImageCollection : ISprite
+  {
     private List<IMappedImageInfo> _mappedImages = null;
     private int _width = 0;
     private int _height = 0;
@@ -30,28 +34,37 @@ public class Sprite : ISprite
     /// </summary>
     public int Area { get { return _width * _height; } }
 
-    public Sprite()
+    public MappedImageCollection()
     {
-        _mappedImages = new List<IMappedImageInfo>();
-        _width = 0;
-        _height = 0;
+      _mappedImages = new List<IMappedImageInfo>();
+      _width = 0;
+      _height = 0;
     }
 
     /// <summary>
     /// Adds a Rectangle to the SpriteInfo, and updates the width and height of the SpriteInfo.
     /// </summary>
     /// <param name="imageLocation"></param>
-    public void AddMappedImage(IMappedImageInfo imageLocation)
+    public void AddMappedImage( IMappedImageInfo imageLocation )
     {
-        _mappedImages.Add(imageLocation);
+      _mappedImages.Add( imageLocation );
 
-        IImageInfo newImage = imageLocation.ImageInfo;
+      IImageInfo newImage = imageLocation.ImageInfo;
 
-        int highestY = imageLocation.Y + newImage.Height;
-        int rightMostX = imageLocation.X + newImage.Width;
+      int highestY = imageLocation.Y + newImage.Height;
+      int rightMostX = imageLocation.X + newImage.Width;
 
-        if (_height < highestY) { _height = highestY; }
-        if (_width < rightMostX) { _width = rightMostX; }
+      if ( _height < highestY ) { _height = highestY; }
+      if ( _width < rightMostX ) { _width = rightMostX; }
     }
 
+
+
+    public SpriteInfo CreateSprite()
+    {
+      return SpriteInfo.Create( this );
+    }
+
+
+  }
 }

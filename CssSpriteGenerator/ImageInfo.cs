@@ -2,10 +2,11 @@
 using System.Drawing;
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace CssSpriteGenerator
 {
-  internal class ImageInfo : IImageInfo
+  public class ImageInfo : IImageInfo
   {
     private ImageInfo( Image image, string name )
     {
@@ -13,14 +14,15 @@ namespace CssSpriteGenerator
       Image = image;
       Name = name;
 
-
     }
+
 
 
     public Image Image
     {
       get; private set;
     }
+
 
     public string Name
     {
@@ -30,21 +32,15 @@ namespace CssSpriteGenerator
 
     public static ImageInfo Create( string path )
     {
-
       try
       {
-
         var image = Image.FromFile( path );
-        return new ImageInfo( image, Path.GetFileName( path ).Replace( ".", "-" ) );
-
+        return new ImageInfo( image, Regex.Replace( Path.GetFileNameWithoutExtension( path ), @"\W", "-" ) );
       }
       catch
       {
         return null;
       }
-
-
-
     }
 
 
