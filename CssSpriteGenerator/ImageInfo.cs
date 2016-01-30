@@ -34,7 +34,7 @@ namespace CssSpriteGenerator
     {
       try
       {
-        var image = Image.FromFile( path );
+        var image = Bitmap.FromFile( path );
         return new ImageInfo( image, Regex.Replace( Path.GetFileNameWithoutExtension( path ), @"\W", "-" ) );
       }
       catch
